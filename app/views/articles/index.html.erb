@@ -1,0 +1,21 @@
+<h1 style="color:green;">Article List</h1>
+
+<table>
+  <tr>
+    <%= link_to "새 파일 만들기", new_article_path %>
+    <th>제목</th>
+    <th>내용</th>
+   </tr>
+    <% @articles.each do |article| %>
+      <tr>
+       <td><%= article.title %></td>
+       <td><%= article.description %></td>
+        <td><%= link_to "파일 수정하기", edit_article_path(article) %></td>
+        <td><%= link_to "파일 보여주기", article_path(article) %></td>
+        <td><%= link_to "삭제", article_path(article), method: :delete, data: {confirm: "지우고 싶니??"} %></td>
+        <br/>
+  </tr>
+</table>
+  <% end %>
+
+
